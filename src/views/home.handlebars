@@ -1,1 +1,70 @@
-<h1>Hola mundo</h1>
+<header>
+  <nav>
+    <div id="navigation">
+    <ul>
+      {{#each data.navigation.0.items}}
+        <li><a href="{{href}}" {{#if isCurrent}}class="current"{{/if}}>{{text}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div>
+    <img src="{{data.logo.image.src}}" alt="{{data.logo.alt}}" crossorigin="anonymous" width="{{data.logo.image.width}}" height="{{data.logo.image.height}}">
+    <p>Aquí va el logo</p>
+  </div>
+  </nav>
+</header>
+
+
+{{!-- lead - headline --}}
+<h1>{{data.headline}}</h1>
+{{!-- lead - subHeadline --}}
+<p>{{data.subHeadline}}</p>
+
+{{!-- lead - image --}}
+<div id="lead-image">
+  <img src="{{data.lead.0.image.src}}" alt="{{data.lead.0.alt}}" crossorigin="anonymous">
+</div>
+
+
+
+  <div id="hot-topics">
+    <h2>Hot Topics</h2>
+    <ul>
+      {{#each data.hotTopics}}
+        <li><a href="{{url}}" target="_blank">{{title}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div id="page-lead">
+    <img src="{{data.pageLead.0.image.src}}" alt="{{data.pageLead.0.alt}}" crossorigin="anonymous">
+  </div>
+
+  
+
+  <div id="social">
+    <h2>Social</h2>
+    <ul>
+      {{#each data.social.0.items}}
+        <li><a href="{{data.href}}" target="_blank">{{data.body}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div id="audio-player">
+    <h2>{{data.audioPlayer.0.audioTitle}}</h2>
+    <audio controls>
+      <source src="{{data.audioPlayer.0.audioUrl}}" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div id="actions">
+    <h3>Compartir:</h3>
+    {{#each data.actions.0.items}}
+      <button onclick="{{_template}}">{{body}}</button>
+    {{/each}}
+  </div>
+
+{{{data.breadcrumbs?.[0]}}}
+{{info.body}}

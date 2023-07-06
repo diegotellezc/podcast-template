@@ -1,7 +1,9 @@
-const getJson = () => {
-  fetch("https://jsonblob.com/api/jsonBlob/1126571113533685760")
+const getJSON = () => {
+  return fetch("https://jsonblob.com/api/jsonBlob/1126571113533685760")
     .then((res) => res.json())
-    .then((data) => console.log(data));
+    .then((data) => {
+      return data;
+    });
 };
 
-getJson();
+module.exports = getJSON;

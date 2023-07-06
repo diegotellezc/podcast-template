@@ -17,13 +17,11 @@ app.use(
 );
 app.use(
   helmet.contentSecurityPolicy({
+    useDefaults: true,
     directives: {
-      "default-src": ["'self'"],
-      "connect-src": ["'self'", "'unsafe-inline'"],
-      "img-src": ["'self'", "data:"],
-      "style-src-elem": ["'self'", "data:"],
-      "script-src": ["'unsafe-inline'", "'self'"],
-      "object-src": ["'none'"],
+      "connect-src": ["'self'", "'unsafe-inline'", "https://jsonblob.com"],
+      "img-src": ["'self'", "https: data:"],
+      "media-src": ["'self'", "*"],
     },
   })
 );
