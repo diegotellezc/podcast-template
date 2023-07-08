@@ -1,21 +1,24 @@
 {
-  "name": "create-node-app",
+  "name": "template-caracol-tv",
   "version": "1.0.0",
-  "description": "",
+  "description": "In this project, I have worked with Handlebars, which is a template engine, to create a podcast page template. We can consume a JSON fetched from a URL in the api.js file to replace the data in the home.handlebars file, thus achieving dynamic HTML. The application is built using Express.",
   "main": "index.js",
   "scripts": {
     "start": "node src/server",
     "dev": "nodemon src/server"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["node", "javascript", "express", "handlebars"],
+  "author": "Diego Téllez <diegotellezdev@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-handlebars": "^7.0.7",
-    "helmet": "^6.0.1"
+    "helmet": "^6.0.1",
+    "less": "^4.1.3",
+    "less-middleware": "^3.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

@@ -1,70 +1,114 @@
+{{!-- Header --}}
 <header>
-  <nav>
-    <div id="navigation">
-    <ul>
+  <nav class="navbar__navigation">
+    <i class="fas fa-bars nav__icon"></i>
+
+    <div class="navbar__logo">
+      <img src="{{data.logo.0.image.src}}" alt="{{data.logo.0.alt}}" crossorigin="anonymous" width="{{data.logo.image.width}}" height="{{data.logo.image.height}}">
+    </div>
+  </nav>
+
+  <div class="nav__menu">
+    <ul class="nav__list">
       {{#each data.navigation.0.items}}
-        <li><a href="{{href}}" {{#if isCurrent}}class="current"{{/if}}>{{text}}</a></li>
+              <li class="nav__items">
+                <a class="nav__link" href="{{href}}" target="_blank">{{text}}</a>
+              </li>
       {{/each}}
     </ul>
   </div>
 
-  <div>
-    <img src="{{data.logo.image.src}}" alt="{{data.logo.alt}}" crossorigin="anonymous" width="{{data.logo.image.width}}" height="{{data.logo.image.height}}">
-    <p>Aquí va el logo</p>
-  </div>
-  </nav>
+  <section class="hotTopics__section">
+    <div class="hot-topics">
+      <h2>Tendencias</h2>
+      <ul>
+        {{#each data.hotTopics}}
+          <li><a href="{{url}}" target="_blank">{{title}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <div class="social">
+      <a href="{{data.social.0.items.3.href}}" target="_blank">
+        <i class="fab fa-facebook"></i>
+      </a>
+
+      <a href="{{data.social.0.items.0.href}}" target="_blank">
+        <i class="fab fa-twitter"></i>
+      </a>
+      
+      <a href="{{data.social.0.items.1.href}}" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="{{data.social.0.items.2.href}}" target="_blank">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+  </section>
 </header>
 
+{{!-- PageLead --}}
+<section class="pageLead">
+  <img src="{{data.pageLead.0.image.src}}" alt="{{data.pageLead.0.alt}}" crossorigin="anonymous">
+</section>
 
-{{!-- lead - headline --}}
-<h1>{{data.headline}}</h1>
-{{!-- lead - subHeadline --}}
-<p>{{data.subHeadline}}</p>
-
-{{!-- lead - image --}}
-<div id="lead-image">
-  <img src="{{data.lead.0.image.src}}" alt="{{data.lead.0.alt}}" crossorigin="anonymous">
-</div>
-
-
-
-  <div id="hot-topics">
-    <h2>Hot Topics</h2>
-    <ul>
-      {{#each data.hotTopics}}
-        <li><a href="{{url}}" target="_blank">{{title}}</a></li>
-      {{/each}}
-    </ul>
-  </div>
-
-  <div id="page-lead">
-    <img src="{{data.pageLead.0.image.src}}" alt="{{data.pageLead.0.alt}}" crossorigin="anonymous">
-  </div>
-
+{{!-- Main --}}
+<main class="main__container">
   
+  {{!-- Breadcrumbs --}}
+  <section class="breadcrumbs">
+    {{#each data.breadcrumbs}}
+          <li><a href="{{href}}" target="_blank">{{body}}</a></li>
+        {{/each}}
+  </section>
 
-  <div id="social">
-    <h2>Social</h2>
-    <ul>
-      {{#each data.social.0.items}}
-        <li><a href="{{data.href}}" target="_blank">{{data.body}}</a></li>
-      {{/each}}
-    </ul>
-  </div>
+  <section class="podcast__container">
+    {{!-- leadImage --}}
+    <div class="leadImage">
+        <img src="{{data.lead.0.image.src}}" alt="{{data.lead.0.alt}}" crossorigin="anonymous">
+    </div>
 
-  <div id="audio-player">
-    <h2>{{data.audioPlayer.0.audioTitle}}</h2>
-    <audio controls>
-      <source src="{{data.audioPlayer.0.audioUrl}}" type="audio/mpeg">
-    </audio>
-  </div>
+    {{!-- infoPodcast --}}
+    <div class="info__podcast">
+      {{!-- headline --}}
+      <h1>{{data.headline}}</h1>
 
-  <div id="actions">
-    <h3>Compartir:</h3>
-    {{#each data.actions.0.items}}
-      <button onclick="{{_template}}">{{body}}</button>
-    {{/each}}
-  </div>
+      {{!-- subHeadline --}}
+      <p>{{data.subHeadline}}</p>
 
-{{{data.breadcrumbs?.[0]}}}
-{{info.body}}
+      {{!-- audioPlayer --}}
+      <div class="audio-player">
+        <h3 class="player-text">{{data.audioPlayer.0.audioTitle}}</h3>
+        <audio controls>
+          <source src="/audio-proxy?url={{data.audioPlayer.0.audioUrl}}" type="audio/mp3">
+        </audio>
+      </div>
+
+      {{!-- actions --}}
+      <div class="actions">
+        <h3>Compartir:</h3>
+
+        <div class="action__buttons">
+          <a href="{{data.actions.0.items.0.shareHref}}" target="_blank">
+            <img src="/icons/facebook.png" alt="">
+          </a>
+
+          <a href="{{data.actions.0.items.1.url}}" target="_blank">
+            <img src="/icons/twitter.png" alt="">
+          </a>
+
+          <a href="{{data.actions.0.items.2.url}}" target="_blank">
+            <img src="/icons/whatsapp.png" alt="">
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+
+
+
+

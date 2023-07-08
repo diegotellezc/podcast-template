@@ -8,9 +8,8 @@ router.get("/", async (req, res) => {
     const data = await getJson();
     res.render("home", { data });
   } catch (error) {
-    // Manejo de errores
     console.error(error);
-    res.status(500).send("Error al obtener los datos de la API");
+    res.status(500).send("Error. There were problems getting the data");
   }
 });
 
